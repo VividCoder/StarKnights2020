@@ -84,6 +84,10 @@ namespace Knights.States
                         {
                             logos = 0;
                             logo = logo + 1;
+                            if (logo == 4)
+                            {
+                                VividApp.PushState(new StarSequence());
+                            }
                             la = 0;
                             sa = 0.0f;
                         }

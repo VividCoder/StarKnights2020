@@ -13,7 +13,7 @@ namespace Knights
 
         public StarKnights() : base("StarKnights 2020", 1300, 800, false)
         {
-            InitState = new SKTitles();
+            InitState = new StarSequence();
         }
 
         public override void InitApp()
