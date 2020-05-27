@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Vivid.FXS;
 
 namespace Vivid.VFX
 {
@@ -16,6 +17,8 @@ namespace Vivid.VFX
             get;
             set;
         }
+
+        public FXS.FXImage UnlitImage;
 
         public List<ParticleBase> Removes
         {
@@ -163,6 +166,7 @@ namespace Vivid.VFX
             ZIJit = 0.2f;
             W = 32;
             H = 32;
+            UnlitImage = new FXS.FXImage();
         }
 
         public void Spawn(int number, float x, float y, float z, float xi, float yi, float zi)
@@ -255,10 +259,14 @@ namespace Vivid.VFX
 
         public override void Render()
         {
+            Vivid.Draw.IntelliDraw.BeginDraw();
             foreach (ParticleBase particle in Particles)
             {
                 particle.Render();
             }
+            UnlitImage.Bind();
+            Vivid.Draw.IntelliDraw.EndDraw2D();
+            UnlitImage.Release();
         }
 
         public override void Stop()

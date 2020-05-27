@@ -1,4 +1,5 @@
 ﻿using OpenTK;
+using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -494,6 +495,14 @@ namespace Vivid.Scene
                 Render.Begin();
                 DrawNode(Root);
                 UnlitImage.Bind();
+
+                GL.Enable(EnableCap.Blend);
+                GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+
+                //OpenTK.Graphics.OpenGL4.EnableCap();
+                //OpenTK.Graphics.OpenGL4.
+
+
                 Render.End2D();
                 UnlitImage.Release();
             }
