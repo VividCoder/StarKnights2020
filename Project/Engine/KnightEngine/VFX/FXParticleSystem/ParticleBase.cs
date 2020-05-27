@@ -150,7 +150,7 @@ namespace Vivid.VFX
             W = 16;
             H = 16;
             Alpha = 1.0f;
-            AI = 0.91f;
+            AI = 0.85f;
         }
 
         public virtual ParticleBase Clone()
@@ -172,7 +172,7 @@ namespace Vivid.VFX
             XI = XI * XDrag * Weight;
             YI = YI * YDrag * Weight;
             ZI = ZI * ZDrag * Weight;
-            RI = RI * RDrag * Weight;
+           RI = RI * RDrag * Weight;
 
             Life = Life - LifeRate * LifeDrag;
 

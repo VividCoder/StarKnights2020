@@ -82,7 +82,7 @@ namespace Vivid.Draw
 
 
 
-            Draw.IntelliDraw.DrawImg2D(xc, yc, img,norm, new Vector4(1, 1, 1, 1),z);
+            Draw.IntelliDraw.DrawImg2D(xc, yc, img,norm, Col,z);
 
 
             //'  Col = new Vector4(1, 1, 1, 0.5f);

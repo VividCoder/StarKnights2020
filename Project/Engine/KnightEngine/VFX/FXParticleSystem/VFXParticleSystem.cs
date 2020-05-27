@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Vivid.FXS;
+using OpenTK.Graphics.OpenGL4;
+using System.Drawing.Drawing2D;
 
 namespace Vivid.VFX
 {
@@ -26,6 +28,29 @@ namespace Vivid.VFX
             set;
         }
 
+        public float XDrag1
+        {
+            get;
+            set;
+        }
+
+        public float XDrag2
+        {
+            get;
+            set;
+        }
+
+        public float YDrag1
+        {
+            get;
+            set;
+        }
+
+        public float YDrag2
+        {
+            get;
+            set;
+        }
         public float SpawnRot1
         {
             get;
@@ -166,12 +191,16 @@ namespace Vivid.VFX
             ZIJit = 0.2f;
             W = 32;
             H = 32;
+            XDrag1 = 1.0f;
+            XDrag2 = 1.0f;
+            YDrag1 = 1.0f;
+            YDrag2 = 1.0f;
             UnlitImage = new FXS.FXImage();
         }
-
+        Random rnd = new Random(Environment.TickCount);
         public void Spawn(int number, float x, float y, float z, float xi, float yi, float zi)
         {
-            Random rnd = new Random(Environment.TickCount);
+           
 
             for (int i = 0; i < number; i++)
             {
@@ -225,6 +254,15 @@ namespace Vivid.VFX
                     np.LifeDrag = 0.98f;
                     np.Sys = this;
 
+                    float xd, yd;
+
+                    xd = (float)rnd.NextDouble();
+                    yd = (float)rnd.NextDouble();
+
+
+                    np.XDrag = XDrag1 + (XDrag2 - XDrag1) * xd;
+                    np.YDrag = YDrag1 + (YDrag2 - YDrag1) * yd;
+
                     Particles.Add(np);
                 }
             }
@@ -265,6 +303,8 @@ namespace Vivid.VFX
                 particle.Render();
             }
             UnlitImage.Bind();
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
             Vivid.Draw.IntelliDraw.EndDraw2D();
             UnlitImage.Release();
         }
