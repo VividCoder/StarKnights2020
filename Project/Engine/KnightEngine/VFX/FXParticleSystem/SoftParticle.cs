@@ -40,7 +40,7 @@ namespace Vivid.VFX
 
             Draw.Render.SetBlend(Draw.BlendMode.SoftLight);
 
-            Draw.Render.Col = new Vector4(1, 1, 1, Alpha);
+            Draw.Render.Col = new Vector4(Alpha, Alpha,Alpha, Alpha);
 
             Draw.Render.Image(p,Img,Img, 1.0f);
 

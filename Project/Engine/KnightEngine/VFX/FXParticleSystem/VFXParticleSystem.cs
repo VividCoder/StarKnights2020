@@ -51,6 +51,18 @@ namespace Vivid.VFX
             get;
             set;
         }
+
+        public float ZDrag1
+        {
+            get;
+            set;
+        }
+
+        public float ZDrag2
+        {
+            get;
+            set;
+        }
         public float SpawnRot1
         {
             get;
@@ -171,6 +183,18 @@ namespace Vivid.VFX
             set;
         }
 
+        public float AlphaI1
+        {
+            get;
+            set;
+        }
+
+        public float AlphaI2
+        {
+            get;
+            set;
+        }
+
         public VFXParticleSystem()
         {
             Particles = new List<ParticleBase>();
@@ -185,7 +209,7 @@ namespace Vivid.VFX
             XBig = YBig = XSmall = YSmall = 5;
             ZSmall = 0.2f;
             ZBig = 0.2f;
-            RJit = 350;
+            RJit = 2;
             XIJit = 5;
             YIJit = 5;
             ZIJit = 0.2f;
@@ -195,6 +219,10 @@ namespace Vivid.VFX
             XDrag2 = 1.0f;
             YDrag1 = 1.0f;
             YDrag2 = 1.0f;
+            AlphaI1 = 0.9f;
+            AlphaI2 = 0.99f;
+            ZDrag1 = 1.0f;
+            ZDrag2 = 1.0f;
             UnlitImage = new FXS.FXImage();
         }
         Random rnd = new Random(Environment.TickCount);
@@ -245,12 +273,14 @@ namespace Vivid.VFX
 
                     np.XI = (xi + xj) * pw;
                     np.YI = (yi + yj) * pw;
-                    np.ZI = (zi + zj) * pw;
+                    np.ZI = 0.07f;
 
                     np.RI = rnd.Next((int)-RJit, (int)RJit);
 
+                    np.RDrag = 1.0f;
+
                     //np.Life = 100.0f;
-                    np.LifeRate = 0.03f;
+                    np.LifeRate = 0.002f;
                     np.LifeDrag = 0.98f;
                     np.Sys = this;
 
@@ -262,6 +292,14 @@ namespace Vivid.VFX
 
                     np.XDrag = XDrag1 + (XDrag2 - XDrag1) * xd;
                     np.YDrag = YDrag1 + (YDrag2 - YDrag1) * yd;
+
+                    float ad = (float)rnd.NextDouble();
+
+                    np.AI = AlphaI1 + (AlphaI2 - AlphaI1) * ad;
+
+                    zd = (float)rnd.NextDouble();
+
+                    np.ZDrag = ZDrag1 + (ZDrag2 - ZDrag1) * zd;
 
                     Particles.Add(np);
                 }

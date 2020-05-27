@@ -43,8 +43,8 @@ namespace Knights.States
             Vivid.VFX.VisualFX.Add(ps1);
             Vivid.VFX.VisualFX.Graph = Graph;
             ps1.AddBase(p1);
-           
 
+        
 
 
 
@@ -60,14 +60,15 @@ namespace Knights.States
         {
             base.UpdateState();
             Graph.Update();
-            ps1.Spawn(20, 0, 0, 1.0f, 0,0, 0);
 
+            ps1.Spawn(2, 0, 0, 1.0f, 0, 0, 0);
             Vivid.VFX.VisualFX.Update();
             
 
             //var p1 = new Vivid.VFX.SoftParticle(i1);
      
-            //Graph.Rot = Graph.Rot + 1;
+            Graph.Rot = Graph.Rot + 1;
+
             //Graph.Z = Graph.Z - 0.01f;
 
         }
