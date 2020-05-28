@@ -29,7 +29,7 @@ namespace Knights.States
 
             var ageNum = new NumericForm().Set(55, 50, 140, 30) as NumericForm;
 
-            var bdform = new DatePickerForm().Set(5, 95, 250, 300) as DatePickerForm;
+            var bdform = new DatePickerForm().Set(5, 95, 230, 200) as DatePickerForm;
 
             ageNum.SetValue(30);
 

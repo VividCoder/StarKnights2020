@@ -16,15 +16,15 @@ namespace Vivid.Resonance.Forms
         public static Texture2D ButTex = null;
         public static Texture2D HighTex = null;
         public bool Highlight = false;
-
+        public static int lastBing = 0;
         public ButtonForm()
         {
             Selectable = true;
             if (BleepSrc == null)
             {
                 //BleepSrc = new Vivid.Audio.Songs.
-                BleepSrc = Vivid.Audio.Songs.LoadSound("Corona/Sound/UI/beep1.wav");
-                BingSrc = Vivid.Audio.Songs.LoadSound("Corona/Sound/UI/click1.wav");
+                BleepSrc = Vivid.Audio.Songs.LoadSound("data/audio/beep1.wav");
+                BingSrc = Vivid.Audio.Songs.LoadSound("data/audio/overbleep1.wav");
             }
             if (Font == null)
             {
@@ -61,8 +61,14 @@ namespace Vivid.Resonance.Forms
                 {
                     Col = OverCol;
                 }
-                Vivid.Audio.Songs.PlaySource(BingSrc);
-                Over = true;
+
+                int nt = Environment.TickCount;
+                if (nt > lastBing + 200)
+                {
+                    Vivid.Audio.Songs.PlaySource(BingSrc);
+                    lastBing = nt;
+                }
+                    Over = true;
             }
 
             void MouseLeaveFunc()
