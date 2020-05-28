@@ -1,6 +1,8 @@
-﻿using System;
+﻿using KnightEngine.Resonance.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Vivid.App;
@@ -22,10 +24,20 @@ namespace Knights.States
             var pinfow = new WindowForm().Set(20, 100, 400, 500, "Create Player") as WindowForm;
             var pnamel = new LabelForm().Set(5, 20, 250, 25, "Name");
             var pname_tb = new TextBoxForm().Set(55, 20, 250, 25, "John") as TextBoxForm;
+
+            var agelab = new LabelForm().Set(5, 50,55, 25, "Age") as LabelForm;
+
+            var ageNum = new NumericForm().Set(55, 50, 140, 30) as NumericForm;
+
+            ageNum.SetValue(30);
+
             pinfow.Body.Add(pnamel);
             pinfow.Body.Add(pname_tb);
+            pinfow.Body.Add(ageNum);
+            pinfow.Body.Add(agelab);
             bg.Add(newGame);
             bg.Add(pinfow);
+
 
 
             var back = new ButtonForm().Set(25, AppInfo.H - 80, 85, 25, "Back");
