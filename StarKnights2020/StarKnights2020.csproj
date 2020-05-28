@@ -72,8 +72,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StarKnights.cs" />
+    <Compile Include="States\SKNewGame.cs" />
     <Compile Include="States\SKTitles.cs" />
-    <Compile Include="States\StarSequence.cs" />
+    <Compile Include="States\SKMainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -195,6 +195,12 @@ namespace Vivid.VFX
             set;
         }
 
+        public float JitMin
+        {
+            get;
+            set;
+        }
+
         public VFXParticleSystem()
         {
             Particles = new List<ParticleBase>();
@@ -213,14 +219,15 @@ namespace Vivid.VFX
             XIJit = 5;
             YIJit = 5;
             ZIJit = 0.2f;
+            JitMin = 1.5f;
             W = 32;
             H = 32;
             XDrag1 = 1.0f;
             XDrag2 = 1.0f;
             YDrag1 = 1.0f;
             YDrag2 = 1.0f;
-            AlphaI1 = 0.9f;
-            AlphaI2 = 0.99f;
+            AlphaI1 = 0.99f;
+            AlphaI2 = 0.996f;
             ZDrag1 = 1.0f;
             ZDrag2 = 1.0f;
             UnlitImage = new FXS.FXImage();
@@ -253,6 +260,9 @@ namespace Vivid.VFX
                     float xj = XIJit * (float)rnd.NextDouble();
                     float yj = YIJit * (float)rnd.NextDouble();
                     float zj = ZIJit * (float)rnd.NextDouble();
+
+                    if (xj < JitMin) xj = JitMin;
+                    if (yj < JitMin) yj = JitMin;
 
                     if (rnd.Next(0, 5) > 2)
                     {

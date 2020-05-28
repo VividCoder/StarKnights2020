@@ -86,7 +86,7 @@ namespace Knights.States
                             logo = logo + 1;
                             if (logo == 4)
                             {
-                                VividApp.PushState(new StarSequence());
+                                VividApp.PushState(new SKMainMenu());
                             }
                             la = 0;
                             sa = 0.0f;

@@ -350,7 +350,8 @@ namespace Vivid.Scene
 
 
                 }
-             
+
+                Render.Col = new Vector4(1, 1, 1, 1);
                 Render.Image(node.DrawP, node.ImgFrame,node.NormalMap ,node.ShadowPlane);
             
                 //Render.Image(xc, yc, node.ImgFrame);
