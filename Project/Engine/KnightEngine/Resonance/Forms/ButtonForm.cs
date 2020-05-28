@@ -14,6 +14,8 @@ namespace Vivid.Resonance.Forms
         public static Vivid.Audio.VSoundSource BleepSrc;
         public static Vivid.Audio.VSoundSource BingSrc;
         public static Texture2D ButTex = null;
+        public static Texture2D HighTex = null;
+        public bool Highlight = false;
 
         public ButtonForm()
         {
@@ -32,6 +34,7 @@ namespace Vivid.Resonance.Forms
             if (ButTex == null)
             {
                 ButTex = new Texture2D("data/nxUI/button/button4.png", LoadMethod.Single, true);
+                HighTex = new Texture2D("data/nxUI/button/button2.png", LoadMethod.Single, true);
             }
             SetImage(ButTex);
             Col = NormCol;
@@ -40,7 +43,11 @@ namespace Vivid.Resonance.Forms
             {
                 Pen2D.BlendMod = PenBlend.Alpha;
 
-             //   DrawFormSolid(new Vector4(0, 0, 0, 1));
+                //   DrawFormSolid(new Vector4(0, 0, 0, 1));
+                if (Highlight)
+                {
+                    DrawForm(HighTex, -2, -2, W + 4, H + 4, false);
+                }
                 DrawForm(CoreTex,new Vector4(Col.X * UI.CurUI.FadeAlpha,Col.Y * UI.CurUI.FadeAlpha,Col.Z * UI.CurUI.FadeAlpha,UI.CurUI.FadeAlpha) ,1, 1, W - 2, H - 2);
                 //if (Text == "") return;
                

@@ -29,16 +29,25 @@ namespace Knights.States
 
             var ageNum = new NumericForm().Set(55, 50, 140, 30) as NumericForm;
 
+            var bdform = new DatePickerForm().Set(5, 95, 250, 300) as DatePickerForm;
+
             ageNum.SetValue(30);
 
             pinfow.Body.Add(pnamel);
             pinfow.Body.Add(pname_tb);
             pinfow.Body.Add(ageNum);
             pinfow.Body.Add(agelab);
+            pinfow.Body.Add(bdform);
+
             bg.Add(newGame);
             bg.Add(pinfow);
 
+            bdform.Picked = (day, month) =>
+            {
 
+                Console.WriteLine("Day:" + day + " Month:" + month);
+
+            };
 
             var back = new ButtonForm().Set(25, AppInfo.H - 80, 85, 25, "Back");
 

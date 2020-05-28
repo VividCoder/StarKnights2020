@@ -348,6 +348,7 @@
     <Compile Include="Resonance\Forms\ButtonForm.cs" />
     <Compile Include="Resonance\Forms\CheckBoxForm.cs" />
     <Compile Include="Resonance\Forms\ContextMenuForm.cs" />
+    <Compile Include="Resonance\Forms\DatePickerForm.cs" />
     <Compile Include="Resonance\Forms\DockAreaForm.cs" />
     <Compile Include="Resonance\Forms\DragObject.cs" />
     <Compile Include="Resonance\Forms\DragZoneForm.cs" />

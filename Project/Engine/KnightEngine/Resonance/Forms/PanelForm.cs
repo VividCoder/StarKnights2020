@@ -10,7 +10,7 @@ namespace Vivid.Resonance.Forms
         {
             if (Tex == null)
             {
-                Tex = new Texture2D("data/UI/panel.png", LoadMethod.Single, false);
+                Tex = new Texture2D("data/nxUI/window/title2.png", LoadMethod.Single, false);
             }
             void DrawFunc()
             {

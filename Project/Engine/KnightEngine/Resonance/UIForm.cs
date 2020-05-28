@@ -55,6 +55,8 @@ namespace Vivid.Resonance
 
         public FormResized Resized = null;
 
+        public int IntTag = 0;
+
         public ChangedInfo Changed = null;
         public ChangedInfo SubChanged = null;
         public ChangedInfo AfterSet = null;
