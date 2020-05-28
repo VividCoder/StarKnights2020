@@ -570,15 +570,20 @@ namespace Vivid.Draw
 
             //  DrawFX.Release();
         }
-        public static void EndDraw(Vivid.FX.VEffect fxOver = null)
+        public static void EndDraw(Vivid.FX.VEffect fxOver = null,bool leaveBlend = false)
         {
             if (!begun) return;
             begun = false;
             GL.Enable(EnableCap.DepthTest);
-            GL.Enable(EnableCap.Blend);
+            if (leaveBlend == false)
+            {
+                GL.Enable(EnableCap.Blend);
+            }
             GL.Disable(EnableCap.CullFace);
-            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
-
+            if (leaveBlend == false)
+            {
+                GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+            }
             //GL.Viewport(0, 0, Vivid.App.AppInfo.W, Vivid.App.AppInfo.H);
 
             if (fxOver != null)

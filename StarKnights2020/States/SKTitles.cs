@@ -1,11 +1,14 @@
-﻿using System;
+﻿using OpenTK.Graphics.OpenGL4;
+using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vivid.App;
 using Vivid.Audio;
 using Vivid.Draw;
+using Vivid.FrameBuffer;
 using Vivid.Resonance.Forms;
 using Vivid.State;
 using Vivid.Texture;
@@ -22,9 +25,13 @@ namespace Knights.States
         float la = 0.0f;
         float sa, ta;
         float ba = 0.0f;
+        public FrameBufferColor FB1;
+        public KnightEngine.PP.PPBlur PB;
         public override void InitState()
         {
             base.InitState();
+            PB = new KnightEngine.PP.PPBlur();
+            FB1 = new FrameBufferColor(AppInfo.W, AppInfo.H);
             Console.WriteLine("Creating titles");
             Songs.PlaySong("game/music/logo/intrologo2.wav");
 
@@ -101,10 +108,32 @@ namespace Knights.States
         {
             base.DrawState();
             IntelliDraw.BeginDraw();
-            IntelliDraw.DrawImg(0, 80, AppInfo.W, AppInfo.H-160, BG1, new OpenTK.Vector4(ba, ba, ba, ba));
+            IntelliDraw.DrawImg(0, 80, AppInfo.W, AppInfo.H - 160, BG1, new OpenTK.Vector4(ba, ba, ba, ba));
+            IntelliDraw.EndDraw();
+
+            FB1.Bind();
+
+            IntelliDraw.BeginDraw();
             IntelliDraw.DrawImg(AppInfo.W/2-300,AppInfo.H/2 -150, 600, 300, Logos[logo], new OpenTK.Vector4(la, la, la, la));
             IntelliDraw.EndDraw();
+            
+            FB1.Release();
+
+            float bf = 1.3f - (la * 1.3f);
+
+            PB.BlurFactor = bf;
+
+            var tex = PB.Process(FB1.BB);
+
+            GL.Enable(EnableCap.Blend);
+            OpenTK.Graphics.OpenGL4.GL.BlendFunc(BlendingFactor.One, BlendingFactor.OneMinusSrcColor);
+
+            IntelliDraw.BeginDraw();
+            IntelliDraw.DrawImg(0, 0, AppInfo.W, AppInfo.H, tex, new OpenTK.Vector4(1, 1, 1, 1));
+            IntelliDraw.EndDraw(null, true);
+
             SUI.Render();
+
         }
 
     }
