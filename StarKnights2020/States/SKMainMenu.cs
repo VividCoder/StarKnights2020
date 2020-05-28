@@ -92,6 +92,12 @@ namespace Knights.States
 
         }
 
+        public override void ResumeState()
+        {
+            Vivid.Audio.Songs.PlaySong("game/music/title/title1.mp3");
+            //base.ResumeState();
+        }
+
         Vivid.Tex.Tex2D i1;
         Vivid.VFX.SoftParticle p1;
         Vivid.VFX.VFXParticleSystem ps1;

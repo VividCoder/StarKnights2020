@@ -127,6 +127,10 @@ namespace Vivid.App
         static bool StateChanged = true;
         public static void PushState(VividState state, bool start = true)
         {
+            if (States.Count > 0)
+            {
+                States.Peek().StopState();
+            }
             States.Push(state);
             state.InitState();           
             // VividApp.Link.StateInited = false;
@@ -139,6 +143,7 @@ namespace Vivid.App
             VividState ls = States.Pop();
             ls.StopState();
             ls.Running = false;
+            States.Peek().ResumeState();
         }
 
         public OpenTK.Graphics.Color4 BgCol

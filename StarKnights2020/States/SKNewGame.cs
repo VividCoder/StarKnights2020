@@ -33,6 +33,8 @@ namespace Knights.States
 
             ageNum.SetValue(30);
 
+            Vivid.Audio.Songs.PlaySong("game/music/newgame/newgame1.mp3");
+
             pinfow.Body.Add(pnamel);
             pinfow.Body.Add(pname_tb);
             pinfow.Body.Add(ageNum);
@@ -56,6 +58,7 @@ namespace Knights.States
             back.Click = (b) =>
             {
 
+                Vivid.Audio.Songs.StopSong();
                 VividApp.PopState();
 
             };
