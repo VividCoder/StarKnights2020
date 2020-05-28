@@ -93,6 +93,7 @@ namespace Knights.States
                             logo = logo + 1;
                             if (logo == 4)
                             {
+                                Vivid.Audio.Songs.StopSong();
                                 VividApp.PushState(new SKMainMenu());
                             }
                             la = 0;

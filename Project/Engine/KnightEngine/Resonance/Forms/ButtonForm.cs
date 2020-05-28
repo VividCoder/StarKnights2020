@@ -13,6 +13,7 @@ namespace Vivid.Resonance.Forms
         private Vector4 PressCol = new Vector4(0.2f, 1.6f, 1.6f, 1);
         public static Vivid.Audio.VSoundSource BleepSrc;
         public static Vivid.Audio.VSoundSource BingSrc;
+        public Vivid.Audio.VSoundSource LocalBleep = null;
         public static Texture2D ButTex = null;
         public static Texture2D HighTex = null;
         public bool Highlight = false;
@@ -23,9 +24,15 @@ namespace Vivid.Resonance.Forms
             if (BleepSrc == null)
             {
                 //BleepSrc = new Vivid.Audio.Songs.
-                BleepSrc = Vivid.Audio.Songs.LoadSound("data/audio/beep1.wav");
-                BingSrc = Vivid.Audio.Songs.LoadSound("data/audio/overbleep1.wav");
+                BleepSrc = Vivid.Audio.Songs.LoadSound("game/audio/ui/UI_1_UpDown.wav");
+                BingSrc = Vivid.Audio.Songs.LoadSound("game/audio/ui/UI_2_Select.wav");
             }
+            else
+            {
+
+            }
+
+            LocalBleep = BleepSrc;
             if (Font == null)
             {
                 Font = new Font2.OrchidFont("data/font/font1.ttf", 12);
@@ -91,7 +98,7 @@ namespace Vivid.Resonance.Forms
             void MouseDownFunc(int b)
             {
                 Col = PressCol;
-                Vivid.Audio.Songs.PlaySource(BleepSrc);
+                Vivid.Audio.Songs.PlaySource(LocalBleep);
                 Pressed = true;
             }
 

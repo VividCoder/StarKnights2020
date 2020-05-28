@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenTK.Audio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,7 +64,9 @@ namespace Knights.States
             var logo1 = new ImageForm().Set(AppInfo.W / 2 - 300, 20, 600, 256, "").SetImage(new Texture2D("game/logo/intro/logo4.png", LoadMethod.Single, true));
             SUI.Root.Add(logo1);
 
-            var new_game = new ButtonForm().Set(AppInfo.W / 2 - 150, 500, 300, 30, "New Game");
+            var new_game = new ButtonForm().Set(AppInfo.W / 2 - 150, 500, 300, 30, "New Game") as ButtonForm;
+            new_game.LocalBleep = Vivid.Audio.Songs.LoadSound("game/audio/ui/UI_6_Gamestart.wav");
+
             var load_game = new ButtonForm().Set(AppInfo.W / 2 - 150, 540, 300, 30, "Load Game");
             var options = new ButtonForm().Set(AppInfo.W / 2 - 150, 580, 300, 30, "Options");
             var exit = new ButtonForm().Set(AppInfo.W / 2 - 150, 620, 300, 30, "Exit Game");
@@ -82,6 +85,7 @@ namespace Knights.States
             new_game.Click = (b) =>
             {
 
+                Vivid.Audio.Songs.StopSong();
                 VividApp.PushState(new SKNewGame());
 
             };
