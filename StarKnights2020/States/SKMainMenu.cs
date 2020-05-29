@@ -1,4 +1,5 @@
-﻿using OpenTK.Audio;
+﻿using Knights.Game;
+using OpenTK.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -90,6 +91,16 @@ namespace Knights.States
 
             };
 
+
+            if (Global.EditMode)
+            {
+                var editGame = new ButtonForm().Set(10, AppInfo.H - 50, 120, 30, "Editor");
+
+                SUI.Root.Add(editGame);
+
+                var editLab = new LabelForm().Set(AppInfo.W / 2 + 200, 170, 130, 30, "Editor Mode");
+                SUI.Root.Add(editLab);
+            }
         }
 
         public override void ResumeState()

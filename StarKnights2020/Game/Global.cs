@@ -16,6 +16,8 @@ namespace Knights.Game
 
         public static List<RaceBase> Races = new List<RaceBase>();
 
+        public static bool EditMode = true;
+
         public static void AddRace(RaceBase race)
         {
 
