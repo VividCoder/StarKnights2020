@@ -11,7 +11,7 @@ namespace Knights
     public class StarKnights : VividApp
     {
 
-        public StarKnights() : base("StarKnights 2020", 1300, 800, false)
+        public StarKnights() : base("StarKnights 2020", 1700, 800, false)
         {
             InitState = new SKMainMenu();
         }

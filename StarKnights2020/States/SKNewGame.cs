@@ -77,7 +77,7 @@ namespace Knights.States
 
             foreach(var r in Global.Races)
             {
-                raceSel.AddItem(r.Name);
+                raceSel.AddItem(r.Name, r.Portrait);
             }
 
             ageNum.SetValue(30);
@@ -123,6 +123,41 @@ namespace Knights.States
             bg.Add(pinfow);
             bg.Add(raceInfoWin);
 
+
+            var startWin = new WindowForm().Set(975, 100, 450, 495, "Starting Conditions");
+
+            var newCarLab = new LabelForm().Set(5, 30, 90, 30, "Game Mode");
+
+            var newCar = new DropDownListForm().Set(120, 30, 240, 30, "") as DropDownListForm;
+
+
+            newCar.AddItem("New Carrear", new Texture2D("game/caricon/newCar.png", LoadMethod.Single, true));
+            newCar.AddItem("Random Start", new Texture2D("game/caricon/randomIcon.jpg", LoadMethod.Single, true));
+
+            var forLab = new LabelForm().Set(5, 70, 120, 20, "For Race");
+
+            var forRace = new DropDownListForm().Set(120, 70, 180, 30) as DropDownListForm;
+
+            foreach(var r in Global.Races)
+            {
+                forRace.AddItem(r.Name, r.Portrait);
+            }
+
+            bg.Add(startWin);
+
+            var startPosLab = new LabelForm().Set(5, 110, 90, 30, "Locale");
+
+            var startPos = new DropDownListForm().Set(120, 110, 180, 30) as DropDownListForm;
+
+            startPos.AddItem("Homeworld", new Texture2D("game/loc/home1.png", LoadMethod.Single, true));
+            startPos.AddItem("Other planet", new Texture2D("game/loc/other1.png", LoadMethod.Single, true));
+            startPos.AddItem("Random", new Texture2D("game/caricon/randomIcon.jpg", LoadMethod.Single, true));
+
+
+            startWin.Add(startPosLab,startPos,forRace,forLab,newCarLab,newCar);
+
+
+
             bdform.Picked = (day, month) =>
             {
 
@@ -141,6 +176,9 @@ namespace Knights.States
                 VividApp.PopState();
 
             };
+
+            var beginGame = new ButtonForm().Set(20, 420, 400, 30, "Begin Game");
+            startWin.Add(beginGame);
             
             SUI.Root.Add(bg);
 

@@ -91,6 +91,8 @@ namespace Vivid.Resonance.Forms
                     Scroller.ScrollBut.H = 5;
                 }
 
+                Scroller.ScrollBut.Drag.Invoke(0, 25);
+
                 //Scroller.ScrollBut.Drag(0, 15);
             }
 
@@ -108,12 +110,14 @@ namespace Vivid.Resonance.Forms
 
                 Scroller.Cur = Scroller.ScrollBut.Y;
                 Changed?.Invoke();
+
             }
 
             Scroller.ScrollBut.PostDrag = PostDragFunc;
 
             Add(Scroller);
-
+            Scroller.ScrollBut.Drag.Invoke(0, 25);
+            Scroller.ScrollBut.PostDrag.Invoke(0, 15);
             //PostDragFunc(0, 5);
             //Scroller.ScrollBut.Drag(0, -5);
         }

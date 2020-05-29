@@ -65,7 +65,7 @@ namespace Knights.States
             SUI.Root.Add(logo1);
 
             var new_game = new ButtonForm().Set(AppInfo.W / 2 - 150, 500, 300, 30, "New Game") as ButtonForm;
-            new_game.LocalBleep = Vivid.Audio.Songs.LoadSound("game/audio/ui/UI_6_Gamestart.wav");
+          //  new_game.LocalBleep = Vivid.Audio.Songs.LoadSound("game/audio/ui/UI_6_Gamestart.wav");
 
             var load_game = new ButtonForm().Set(AppInfo.W / 2 - 150, 540, 300, 30, "Load Game");
             var options = new ButtonForm().Set(AppInfo.W / 2 - 150, 580, 300, 30, "Options");
