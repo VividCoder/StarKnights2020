@@ -19,14 +19,15 @@ namespace Vivid.Resonance.Forms
             if (Shadow == null)
             {
                 Shadow = new Texture2D("data/UI/Shadow1.png", LoadMethod.Single, true);
-                TitleImg = new Texture2D("data/nxUI/window/title3.png", LoadMethod.Single, true);
-                BodyImg = new Texture2D("data/nxUI/bg/winBody5.png", LoadMethod.Single, true);
+                TitleImg = new Texture2D("game/ui/win2.png", LoadMethod.Single, true);
+                BodyImg = new Texture2D("game/ui/win3.jpg", LoadMethod.Single, true);
                 BodyNorm = new Texture2D("data/UI/normal/winnorm5.jpg", LoadMethod.Single, false);
             }
 
             Title = new ButtonForm().Set(0, 0, W, 20, Text).SetImage(TitleImg);
 
             Body = new ImageForm().Set(0, 20, W - 100, H - 22, "").SetImage(BodyImg, BodyNorm).SetPeak(true, false);
+            Body.Col = new OpenTK.Vector4(1, 1, 1, 0.82f);
             Body.Peak = false;
             Body.Refract = false;
 

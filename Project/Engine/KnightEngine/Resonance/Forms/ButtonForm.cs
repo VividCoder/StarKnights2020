@@ -59,7 +59,7 @@ namespace Vivid.Resonance.Forms
                 //if (Text == "") return;
                
                 //DrawText(Text, (W / 2 - Font.Width(Text) / 2)+4, (H / 2 - Font.Height())+4, new Vector4(0, 0, 0, 1));
-                DrawText(Text, W / 2 - Font.Width(Text) / 2, H / 2 - Font.Height(), new Vector4(0, 1*UI.CurUI.FadeAlpha, 1*UI.CurUI.FadeAlpha, 1*UI.CurUI.FadeAlpha));
+                DrawText(Text, W / 2 - Font.Width(Text) / 2, H / 2 - 11, new Vector4(0, 1*UI.CurUI.FadeAlpha, 1*UI.CurUI.FadeAlpha, 1*UI.CurUI.FadeAlpha));
             }
 
             void MouseEnterFunc()

@@ -7,12 +7,16 @@ using Vivid.Resonance.Forms;
 
 namespace KnightEngine.Resonance.Forms
 {
+
+    public delegate void ValueChanged(float newValue);
     public class NumericForm : Vivid.Resonance.UIForm
     {
 
         public ButtonForm Up, Down;
         public float Value;
         public TextBoxForm ValueB;
+        public ValueChanged Changed = null;
+        public float IncAmount = 1;
 
         public void SetValue(float v)
         {
@@ -31,20 +35,29 @@ namespace KnightEngine.Resonance.Forms
             Down = new ButtonForm().Set(0, 0, 0, 0, "\\/") as ButtonForm;
             ValueB = new TextBoxForm();
             ValueB.Text = "0";
+            ValueB.Enter = (txt) =>  
+            {
+
+                Value = float.Parse(ValueB.Text);
+                Changed?.Invoke(Value);
+
+            };
 
             Up.Click = (b) =>
             {
 
-                Value++;
+                Value += IncAmount;
                 ValueB.Text = Value.ToString();
+                Changed?.Invoke(Value);
 
             };
 
             Down.Click = (b) =>
             {
 
-                Value--;
+                Value -= IncAmount;
                 ValueB.Text = Value.ToString();
+                Changed?.Invoke(Value);
 
             };
 

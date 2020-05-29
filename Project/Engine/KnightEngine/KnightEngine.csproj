@@ -372,6 +372,7 @@
     <Compile Include="Resonance\Forms\TabForm.cs" />
     <Compile Include="Resonance\Forms\TextAreaForm.cs" />
     <Compile Include="Resonance\Forms\TextBoxForm.cs" />
+    <Compile Include="Resonance\Forms\TextInfoForm.cs" />
     <Compile Include="Resonance\Forms\ToolBarForm.cs" />
     <Compile Include="Resonance\Forms\TreeNode.cs" />
     <Compile Include="Resonance\Forms\TreeViewForm.cs" />

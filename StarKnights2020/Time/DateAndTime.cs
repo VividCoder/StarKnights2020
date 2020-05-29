@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Knights.Time
+{
+    public class DateAndTime
+    {
+
+        public int Day
+        {
+            get;
+            set;
+        }
+
+        public int Month
+        {
+            get;
+            set;
+        }
+
+        public int Minute
+        {
+            get;
+            set;
+        }
+
+        public int Second
+        {
+            get;
+            set;
+        }
+
+        public int Hour
+        {
+            get;
+            set;
+        }
+
+    }
+}
