@@ -154,10 +154,21 @@ namespace Knights.States
             startPos.AddItem("Random", new Texture2D("game/caricon/randomIcon.jpg", LoadMethod.Single, true));
 
 
+            var startSectLab = new LabelForm().Set(5, 150, 90, 30, "Sector");
+
+            var startSect = new DropDownListForm().Set(120, 150, 180, 30) as DropDownListForm;
+
+
+            startSect.AddItem("Millitary", new Texture2D("game/sect/millitaryicon.png", LoadMethod.Single, true));
+            startSect.AddItem("Police", new Texture2D("game/sect/policeicon.jpg", LoadMethod.Single, true));
+            startSect.AddItem("Public", new Texture2D("game/sect/publicicon.png", LoadMethod.Single, true));
+
+            startWin.Add(startSectLab, startSect);
+
+
             startWin.Add(startPosLab,startPos,forRace,forLab,newCarLab,newCar);
 
-
-
+     
             bdform.Picked = (day, month) =>
             {
 
