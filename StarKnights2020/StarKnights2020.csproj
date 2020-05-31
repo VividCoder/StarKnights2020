@@ -79,6 +79,8 @@
     <Compile Include="Races\Race\RaceE.cs" />
     <Compile Include="Races\Race\RaceHuman.cs" />
     <Compile Include="StarKnights.cs" />
+    <Compile Include="States\Edit\EditUniverse.cs" />
+    <Compile Include="States\SKEditor.cs" />
     <Compile Include="States\SKNewGame.cs" />
     <Compile Include="States\SKTitles.cs" />
     <Compile Include="States\SKMainMenu.cs" />

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vivid.App;
+using Vivid.Audio;
+using Vivid.Material;
 using Vivid.Resonance.Forms;
 using Vivid.Scene;
 using Vivid.Scene.Node;
@@ -99,6 +101,14 @@ namespace Knights.States
 
                 SUI.Root.Add(editGame);
 
+                editGame.Click = (b) =>
+                {
+
+                    Songs.StopSong();
+                    VividApp.PushState(new SKEditor());
+
+                };
+
                 var editLab = new LabelForm().Set(AppInfo.W / 2 + 200, 170, 130, 30, "Editor Mode");
                 SUI.Root.Add(editLab);
             }
@@ -106,11 +116,32 @@ namespace Knights.States
             G3D = new SceneGraph3D();
 
             var l1 = new Light3D();
-            l1.Range = 1200;
+            l1.Range = 230;
+            var l2 = new Light3D();
+            l1.SetPos(new OpenTK.Vector3(0.7f, 0, 10));
+            l1.Diff = new OpenTK.Vector3(0, 0, 4);
+            l2.Range = 300;
+            l2.SetPos(new OpenTK.Vector3(-0.5f, 0, 10));
+            l2.Diff = new OpenTK.Vector3(4, 0.2f, 0.2f);
 
-            l1.SetPos(new OpenTK.Vector3(0, 10, 10));
+            var l3 = new Light3D();
+            l3.Range = 370;
+            l3.Diff = new OpenTK.Vector3(0.2f, 3.7f, 0.2f);
+            l3.SetPos(new OpenTK.Vector3(0.2f, -0.35f, 7));
 
-            G3D.Add(l1);
+            l3.Spec = new OpenTK.Vector3(1, 0,0);
+            l2.Spec = new OpenTK.Vector3(0,1, 0);
+            l1.Spec = new OpenTK.Vector3(0, 0, 1);
+
+           G3D.Add(l1);
+
+
+
+
+            G3D.Add(l2);
+
+
+            G3D.Add(l3);
 
             var cam = new Cam3D();
 
@@ -118,17 +149,37 @@ namespace Knights.States
 
             G3D.Add(cam);
 
-            E1 = Vivid.Import.Import.ImportNode("game/3d/starlogo/Atlas5.obj") as Entity3D;
+            E1 = Vivid.Import.Import.ImportNode("game/3d/starlogo/alogo1.obj") as Entity3D;
+            E2 = Vivid.Import.Import.ImportNode("game/3d/back/back2.obj") as Entity3D;
+
+            var tm1 = new Material3D();
+            tm1.ColorMap = new Texture2D("game/tex/metal4Col.png", LoadMethod.Single, false);
+            tm1.SpecularMap = new Texture2D("game/tex/metal4spec.png", LoadMethod.Single, false);
+            tm1.NormalMap = new Texture2D("game/tex/metal4norm.png", LoadMethod.Single, false);
+            var tm2 = new Material3D();
+            tm2.ColorMap = new Texture2D("game/tex/metal1Col.png", LoadMethod.Single, false);
+            tm2.NormalMap = new Texture2D("game/tex/metal3Norm.png", LoadMethod.Single, false);
+            tm2.SpecularMap = new Texture2D("game/tex/metal2spec.png", LoadMethod.Single, false);
+
+
+           E1.SetMat(tm2);
+            E2.SetMat(tm1);
 
             G3D.Add(E1);
+            G3D.Add(E2);
+
 
             E1.Rot(new OpenTK.Vector3(90, 0, -90), Space.Local);
             E1.SetMultiPass();
+            E2.SetMultiPass();
+            E2.SetPos(new OpenTK.Vector3(0, 0, -10));
+            E2.Rot(new OpenTK.Vector3(0, 90, 0), Space.Local);
+            E2.SetPos(new OpenTK.Vector3(0, 0, -80));
 
         }
         Vivid.Scene.Entity3D E1 = null;
         Vivid.Scene.SceneGraph3D G3D;
-
+        Vivid.Scene.Entity3D E2 = null;
         public override void ResumeState()
         {
             Vivid.Audio.Songs.PlaySong("game/music/title/title1.mp3");

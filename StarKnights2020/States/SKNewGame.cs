@@ -105,7 +105,7 @@ namespace Knights.States
             };
 
 
-            Vivid.Audio.Songs.PlaySong("game/music/newgame/newgame1.mp3");
+            Vivid.Audio.Songs.PlaySong("game/music/title/title1.mp3");
 
             pinfow.Body.Add(pnamel);
             pinfow.Body.Add(pname_tb);

@@ -367,7 +367,7 @@ namespace Vivid.Resonance
                 if(form == ActiveJoy)
                 {
 
-                    form.DrawFormSolid(new Vector4(0, 1, 1, 1), -2, -2, form.W + 4, form.H + 4);
+                  //  form.DrawFormSolid(new Vector4(0, 1, 1, 1), -2, -2, form.W + 4, form.H + 4);
 
                 }
               

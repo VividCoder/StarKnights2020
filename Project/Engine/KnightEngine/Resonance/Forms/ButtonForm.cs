@@ -40,7 +40,7 @@ namespace Vivid.Resonance.Forms
 
             if (ButTex == null)
             {
-                ButTex = new Texture2D("data/nxUI/button/button4.png", LoadMethod.Single, true);
+                ButTex = new Texture2D("data/nxUI/button/button7.png", LoadMethod.Single, true);
                 HighTex = new Texture2D("data/nxUI/button/button2.png", LoadMethod.Single, true);
             }
             SetImage(ButTex);
@@ -54,7 +54,12 @@ namespace Vivid.Resonance.Forms
                 if (Highlight)
                 {
                     DrawForm(HighTex, -2, -2, W + 4, H + 4, false);
+                
                 }
+                var pc = Col;
+                Col = new Vector4(0.1f, 0.1f, 0.1f, 0.95f);
+                DrawForm(CoreTex, -1, -1, W + 2, H + 2);
+                Col = pc;
                 DrawForm(CoreTex,new Vector4(Col.X * UI.CurUI.FadeAlpha,Col.Y * UI.CurUI.FadeAlpha,Col.Z * UI.CurUI.FadeAlpha,UI.CurUI.FadeAlpha) ,1, 1, W - 2, H - 2);
                 //if (Text == "") return;
                

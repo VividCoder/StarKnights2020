@@ -366,6 +366,7 @@
     <Compile Include="Resonance\Forms\MainMenuForm.cs" />
     <Compile Include="Resonance\Forms\NumericForm.cs" />
     <Compile Include="Resonance\Forms\PanelForm.cs" />
+    <Compile Include="Resonance\Forms\ProgressBarForm.cs" />
     <Compile Include="Resonance\Forms\RequestFileForm.cs" />
     <Compile Include="Resonance\Forms\ScrollBarV.cs" />
     <Compile Include="Resonance\Forms\SelectionForm.cs" />
