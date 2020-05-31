@@ -1,4 +1,3 @@
-C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\obj\x64\Debug\KnightEngine.csprojAssemblyReference.cache
 C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\obj\x64\Debug\KnightEngine.csproj.CoreCompileInputs.cache
 C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\bin\x64\Debug\SharpFont.dll.config
 C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\bin\x64\Debug\freetype6.dll
@@ -47,3 +46,4 @@ C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\bin\x64\Debug
 C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\obj\x64\Debug\KnightEngine.csproj.CopyComplete
 C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\obj\x64\Debug\KnightEngine.dll
 C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\obj\x64\Debug\KnightEngine.pdb
+C:\Git\StarKnights2020\StarKnights2020\Project\Engine\KnightEngine\obj\x64\Debug\KnightEngine.csprojAssemblyReference.cache

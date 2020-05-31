@@ -55,8 +55,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AssimpNet, Version=5.0.0.0, Culture=neutral, PublicKeyToken=0d51b391f59f42a6, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\AssimpNet.5.0.0-beta1\lib\net40\AssimpNet.dll</HintPath>
+    <Reference Include="AssimpNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0d51b391f59f42a6, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AssimpNet.4.1.0\lib\net40\AssimpNet.dll</HintPath>
     </Reference>
     <Reference Include="CSScriptLibrary, Version=3.30.2.0, Culture=neutral, PublicKeyToken=70fcc3d18c749033, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CS-Script.bin.3.30.2-HotFix\lib\net46\CSScriptLibrary.dll</HintPath>
@@ -471,11 +471,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\packages\SharpFont.Dependencies.2.6\build\SharpFont.Dependencies.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\SharpFont.Dependencies.2.6\build\SharpFont.Dependencies.props'))" />
     <Error Condition="!Exists('..\..\..\packages\SharpFont.4.0.1\build\SharpFont.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\SharpFont.4.0.1\build\SharpFont.props'))" />
-    <Error Condition="!Exists('..\..\..\packages\AssimpNet.5.0.0-beta1\build\AssimpNet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\AssimpNet.5.0.0-beta1\build\AssimpNet.targets'))" />
     <Error Condition="!Exists('..\..\..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets'))" />
     <Error Condition="!Exists('..\..\..\packages\PhysX.Net.1.0.0-alpha\Build\PhysX.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\PhysX.Net.1.0.0-alpha\Build\PhysX.Net.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\AssimpNet.4.1.0\build\AssimpNet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\AssimpNet.4.1.0\build\AssimpNet.targets'))" />
   </Target>
-  <Import Project="..\..\..\packages\AssimpNet.5.0.0-beta1\build\AssimpNet.targets" Condition="Exists('..\..\..\packages\AssimpNet.5.0.0-beta1\build\AssimpNet.targets')" />
   <Import Project="..\..\..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets" Condition="Exists('..\..\..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets')" />
   <Import Project="..\..\..\packages\PhysX.Net.1.0.0-alpha\Build\PhysX.Net.targets" Condition="Exists('..\..\..\packages\PhysX.Net.1.0.0-alpha\Build\PhysX.Net.targets')" />
+  <Import Project="..\..\..\packages\AssimpNet.4.1.0\build\AssimpNet.targets" Condition="Exists('..\..\..\packages\AssimpNet.4.1.0\build\AssimpNet.targets')" />
 </Project>

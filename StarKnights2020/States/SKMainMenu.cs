@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Vivid.App;
 using Vivid.Resonance.Forms;
 using Vivid.Scene;
+using Vivid.Scene.Node;
 using Vivid.State;
 using Vivid.Tex;
 using Vivid.Texture;
@@ -63,7 +64,7 @@ namespace Knights.States
             SUI = new Vivid.Resonance.UI();
 
             var logo1 = new ImageForm().Set(AppInfo.W / 2 - 300, 20, 600, 256, "").SetImage(new Texture2D("game/logo/intro/logo4.png", LoadMethod.Single, true));
-            SUI.Root.Add(logo1);
+         //   SUI.Root.Add(logo1);
 
             var new_game = new ButtonForm().Set(AppInfo.W / 2 - 150, 500, 300, 30, "New Game") as ButtonForm;
           //  new_game.LocalBleep = Vivid.Audio.Songs.LoadSound("game/audio/ui/UI_6_Gamestart.wav");
@@ -101,7 +102,32 @@ namespace Knights.States
                 var editLab = new LabelForm().Set(AppInfo.W / 2 + 200, 170, 130, 30, "Editor Mode");
                 SUI.Root.Add(editLab);
             }
+
+            G3D = new SceneGraph3D();
+
+            var l1 = new Light3D();
+            l1.Range = 1200;
+
+            l1.SetPos(new OpenTK.Vector3(0, 10, 10));
+
+            G3D.Add(l1);
+
+            var cam = new Cam3D();
+
+            cam.SetPos(new OpenTK.Vector3(0, -1, 10));
+
+            G3D.Add(cam);
+
+            E1 = Vivid.Import.Import.ImportNode("game/3d/starlogo/Atlas5.obj") as Entity3D;
+
+            G3D.Add(E1);
+
+            E1.Rot(new OpenTK.Vector3(90, 0, -90), Space.Local);
+            E1.SetMultiPass();
+
         }
+        Vivid.Scene.Entity3D E1 = null;
+        Vivid.Scene.SceneGraph3D G3D;
 
         public override void ResumeState()
         {
@@ -130,15 +156,19 @@ namespace Knights.States
 
             //Graph.Z = Graph.Z - 0.01f;
             Texture2D.UpdateLoading();
+            E1.Turn(new OpenTK.Vector3(1, 0, 0), Space.Local);
             SUI.Update();
-
+            G3D.Update();
         }
 
         public override void DrawState()
         {
             base.DrawState();
-            Graph.Draw(false);
-            Vivid.VFX.VisualFX.Render();
+            //  Graph.Draw(false);
+            //   Vivid.VFX.VisualFX.Render();
+            G3D.RenderShadows();
+            G3D.Render();
+
             SUI.Render();
         }
 

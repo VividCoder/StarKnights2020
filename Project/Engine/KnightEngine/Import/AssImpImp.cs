@@ -58,7 +58,7 @@ namespace Vivid.Import
             Assimp.Scene s = null;
             try
             {
-                s = e.ImportFile(file, PostProcessSteps.OptimizeMeshes | PostProcessSteps.OptimizeGraph | PostProcessSteps.FindInvalidData | PostProcessSteps.FindDegenerates | PostProcessSteps.Triangulate | PostProcessSteps.ValidateDataStructure | PostProcessSteps.CalculateTangentSpace);
+                s = e.ImportFile(file, PostProcessSteps.OptimizeMeshes | PostProcessSteps.OptimizeGraph |   PostProcessSteps.ValidateDataStructure | PostProcessSteps.CalculateTangentSpace);
             }
             catch (AssimpException ae)
             {
@@ -477,7 +477,7 @@ namespace Vivid.Import
             Assimp.Scene s = null;
             try
             {
-                s = e.ImportFile(file, PostProcessSteps.OptimizeGraph | PostProcessSteps.FindInvalidData | PostProcessSteps.FindDegenerates | PostProcessSteps.Triangulate | PostProcessSteps.ValidateDataStructure | PostProcessSteps.CalculateTangentSpace | PostProcessSteps.GenerateNormals | PostProcessSteps.FixInFacingNormals | PostProcessSteps.GenerateSmoothNormals);
+                s = e.ImportFile(file, PostProcessSteps.OptimizeGraph | PostProcessSteps.CalculateTangentSpace | PostProcessSteps.GenerateNormals);
                 if (s.HasAnimations)
                 {
                     return LoadAnimNode(path);
@@ -520,7 +520,7 @@ namespace Vivid.Import
                     NormalMap = NormBlank,
                     SpecularMap = SpecBlank
                 };
-                Mesh3D m2 = new Mesh3D(m.GetIndices().Length, m.VertexCount);
+                Mesh3D m2 = new Mesh3D(m.FaceCount*3, m.VertexCount);
                 ml2.Add(m2);
                 // ml.Add(m.Name, m2);
                 for (int b = 0; b < m.BoneCount; b++)
@@ -621,6 +621,17 @@ namespace Vivid.Import
                     //var v = new PosNormalTexTanSkinned(pos, norm.ToVector3(), texC.ToVector2(), tan.ToVector3(), weights.First(), boneIndices);
                     //verts.Add(v);
                 }
+
+                for(int i = 0; i < m.FaceCount; i++)
+                {
+
+                    var face = m.Faces[i];
+                    if (face.Indices.Count > 2)
+                    {
+                        m2.SetTri(i, face.Indices[0], face.Indices[1], face.Indices[2]);
+                    }
+                }
+                /*
                 int[] id = m.GetIndices();
                 uint[] nd = new uint[id.Length];
                 for (int i = 0; i < id.Length; i += 3)
@@ -636,8 +647,8 @@ namespace Vivid.Import
                         m2.SetTri(i / 3, id[i], id[i + 1], id[i + 2]);
                     }
                 }
-
-                m2.Indices = nd;
+                */
+               // m2.Indices = nd;
                 //m2.Scale(AssImpImport.ScaleX, AssImpImport.ScaleY, AssImpImport.ScaleZ);
                 //m2.GenerateTangents ( );
 

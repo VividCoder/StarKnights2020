@@ -152,6 +152,7 @@ namespace Vivid.Data
             }
             Viz.SetMesh(this);
             Viz.Final();
+          
         }
 
         public void FinalAnim()
