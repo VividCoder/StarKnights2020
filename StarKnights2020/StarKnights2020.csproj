@@ -85,8 +85,13 @@
     <Compile Include="States\SKTitles.cs" />
     <Compile Include="States\SKMainMenu.cs" />
     <Compile Include="Time\DateAndTime.cs" />
+    <Compile Include="Uni\Galaxy.cs" />
+    <Compile Include="Uni\HeightMap.cs" />
     <Compile Include="Uni\StarBody.cs" />
+    <Compile Include="Uni\Sun.cs" />
+    <Compile Include="Uni\Universe.cs" />
     <Compile Include="Uni\World.cs" />
+    <Compile Include="Uni\WorldMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -98,6 +103,9 @@
       <Project>{807bc433-e4e7-477b-a6c0-a9ec10a7643f}</Project>
       <Name>KnightEngine</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Uni\TerrainMap\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
