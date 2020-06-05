@@ -235,7 +235,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="XInputDotNetPure">
-      <HintPath>..\..\..\..\..\XInputDotNet-master\BinariesX64\Release\XInputDotNetPure.dll</HintPath>
+      <HintPath>..\..\..\3Rdparty\XInputDotNetPure.dll</HintPath>
     </Reference>
     <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, PublicKeyToken=47d7877cb3620160">
       <HintPath>..\..\..\packages\zlib.net.1.0.4.0\lib\zlib.net.dll</HintPath>
