@@ -189,6 +189,16 @@ namespace Knights.States
             };
 
             var beginGame = new ButtonForm().Set(20, 420, 400, 30, "Begin Game");
+
+            beginGame.Click = (b) =>
+            {
+
+                Vivid.Audio.Songs.StopSong();
+                Global.BeginGame();
+                Vivid.App.VividApp.PushState(new SKInGalaxy());
+
+            };
+
             startWin.Add(beginGame);
             
             SUI.Root.Add(bg);

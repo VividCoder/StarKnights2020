@@ -1,6 +1,8 @@
 ﻿using Knights.Game.Players;
 using Knights.Races;
 using Knights.Races.Race;
+using Knights.Uni;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,18 @@ namespace Knights.Game
         public static List<RaceBase> Races = new List<RaceBase>();
 
         public static bool EditMode = true;
+
+        public static Universe Uni = null;
+
+
+        public static void BeginGame()
+        {
+
+            Uni = new Universe();
+            Uni.Load("game/uni/universe.dat");
+            Console.WriteLine("Loaded uni. Galaxies:" + Uni.Galaxies.Count);
+
+        }
 
         public static void AddRace(RaceBase race)
         {

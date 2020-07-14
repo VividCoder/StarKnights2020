@@ -30,8 +30,22 @@ namespace Knights.States.Edit
             SUI.Root.Add(bg);
 
             var genUniverse = new ButtonForm().Set(20, 50, 220, 30, "Generate Random Universe");
+            var viewUniverse = new ButtonForm().Set(20, 90, 220, 30, "View Universe");
+            var saveUniverse = new ButtonForm().Set(20, 130, 220, 30, "Save Universe");
 
             bg.Add(genUniverse);
+            bg.Add(viewUniverse);
+            bg.Add(saveUniverse);
+
+            Universe uni1 = new Universe();
+
+
+            saveUniverse.Click = (b) =>
+            {
+
+                uni1.Save("game/uni/universe.dat");
+
+            };
 
             var back = new ButtonForm().Set(20, AppInfo.H - 50, 80, 30, "Back");
 
@@ -103,6 +117,8 @@ namespace Knights.States.Edit
 
             };
 
+     
+
             void GenUniThread()
             {
                 int gc = (int)galaxyCount.Value;
@@ -125,6 +141,7 @@ namespace Knights.States.Edit
 
                     prog = (float)pp / (float)max;
                     genProg.Progress = prog;
+                    uni1.AddGalaxy(galaxy);
                     pp++;
                 }
 
@@ -138,6 +155,8 @@ namespace Knights.States.Edit
                     pp++;
 
                 }
+
+                
 
             }
             Thread gvt;
@@ -314,7 +333,7 @@ namespace Knights.States.Edit
 
             planet.OrbitPos = rnd.Next(0, 359);
 
-            planet.GenerateMap();
+           // planet.GenerateMap();
 
             return planet;
 

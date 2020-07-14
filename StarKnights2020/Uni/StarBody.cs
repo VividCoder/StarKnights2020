@@ -1,6 +1,7 @@
 ﻿using OpenTK;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,5 +41,13 @@ namespace Knights.Uni
             set;
         }
 
+        public virtual void Write(BinaryWriter w)
+        {
+
+        }
+        public virtual void Read(BinaryReader r)
+        {
+
+        }
     }
 }

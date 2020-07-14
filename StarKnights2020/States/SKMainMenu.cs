@@ -55,7 +55,7 @@ namespace Knights.States
             Vivid.VFX.VisualFX.Graph = Graph;
             //ps1.AddBase(p1);
             ps1.AddBase(new Vivid.VFX.SoftParticle(new Tex2D("Game/Stars/star2.png", true)));
-            Vivid.Audio.Songs.PlaySong("game/music/title/title1.mp3");
+            Vivid.Audio.Songs.PlaySong("game/music/sk2020_title.mp3");
 
 
             var BG1 = new Tex2D("game/logo/intro/bg1.jpg",false);

@@ -19,6 +19,7 @@ namespace Knights.States
     {
 
         public List<Texture2D> Logos = new List<Texture2D>();
+        public List<Texture2D> BGS = new List<Texture2D>();
         public Texture2D BG1 = null;
         int logo = 0;
         int logos = 0;
@@ -33,13 +34,17 @@ namespace Knights.States
             PB = new KnightEngine.PP.PPBlur();
             FB1 = new FrameBufferColor(AppInfo.W, AppInfo.H);
             Console.WriteLine("Creating titles");
-            Songs.PlaySong("game/music/logo/intrologo2.wav");
+            Songs.PlaySong("game/music/SK2020_intro.mp3");
 
             Logos.Add(new Texture2D("game/logo/intro/logo1.png",LoadMethod.Single,true));
             Logos.Add(new Texture2D("game/logo/intro/logo2.png", LoadMethod.Single, true));
             Logos.Add(new Texture2D("game/logo/intro/logo3.png", LoadMethod.Single, true));
             Logos.Add(new Texture2D("game/logo/intro/logo4.png", LoadMethod.Single, true));
-            BG1 = new Texture2D("game/logo/intro/bg1.jpg", LoadMethod.Single, false);
+            BGS.Add(new Texture2D("game/logo/intro/bg1.jpg", LoadMethod.Single, false));
+            BGS.Add(new Texture2D("game/logo/intro/bg2.jpg", LoadMethod.Single, false));
+            BGS.Add(new Texture2D("game/logo/intro/bg3.jpg", LoadMethod.Single, false));
+            BGS.Add(new Texture2D("game/logo/intro/bg4.jpg", LoadMethod.Single, false));
+            //BG1 = new Texture2D("game/logo/intro/bg1.jpg", LoadMethod.Single, false);
             SUI = new Vivid.Resonance.UI();
             sa = ta = 0;
 
@@ -108,6 +113,9 @@ namespace Knights.States
         public override void DrawState()
         {
             base.DrawState();
+
+            BG1 = BGS[logo];
+
             IntelliDraw.BeginDraw();
             IntelliDraw.DrawImg(0, 80, AppInfo.W, AppInfo.H - 160, BG1, new OpenTK.Vector4(ba, ba, ba, ba));
             IntelliDraw.EndDraw();
